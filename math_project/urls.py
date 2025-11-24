@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from mathapp import views as math_views
 from guessgame_app import views as guess_views
+from hello_app import views as hello_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,4 +17,6 @@ urlpatterns = [
 
     path('guess/', guess_views.guess_view, name='guess'),
     path('guess/submit/', guess_views.guess_submit, name='guess_submit'),
+
+    path('hello/', hello_views.hello_view, name='hello'),
 ]
