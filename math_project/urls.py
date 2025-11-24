@@ -9,6 +9,10 @@ urlpatterns = [
     path('', math_views.index, name='index'),
 
     path('quadratic/', math_views.quadratic_view, name='quadratic'),
+    path('result/', math_views.result_view, name='result'),
+
+    path('feedback/', math_views.feedback_view, name='feedback'),
+    path('rating/', math_views.rating_view, name='rating'),
 
     path('guess/', guess_views.guess_view, name='guess'),
     path('guess/submit/', guess_views.guess_submit, name='guess_submit'),
