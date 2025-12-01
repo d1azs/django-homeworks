@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Склад (канцелярія) — Products</title>
+</head>
+<body>
+    <h1>Склад (канцелярія)</h1>
+
+    <p>
+        <a href="/">На головну</a> |
+        <a href="{% url 'product_create' %}">Додати новий товар</a> |
+        <a href="{% url 'replenish' 5 %}">Згенерувати 5 випадкових товарів</a>
+    </p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Item name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Quantity in pack</th>
+            <th>Price</th>
+            <th>Дії</th>
+        </tr>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>
+                    <a href="{% url 'product_detail' product.pk %}">
+                        {{ product.item_name }}
+                    </a>
+                </td>
+                <td>{{ product.brand }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.quantity_in_pack }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <a href="{% url 'product_update' product.pk %}">Редагувати</a> |
+                    <a href="{% url 'product_delete' product.pk %}">Видалити</a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7">Немає товарів у базі.</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

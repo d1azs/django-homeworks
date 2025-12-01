@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Товар {{ product.id }}</title>
+</head>
+<body>
+    <h1>Товар: {{ product.item_name }}</h1>
+
+    <ul>
+        <li><strong>Brand:</strong> {{ product.brand }}</li>
+        <li><strong>Category:</strong> {{ product.category }}</li>
+        <li><strong>Quantity in pack:</strong> {{ product.quantity_in_pack }}</li>
+        <li><strong>Price:</strong> {{ product.price }}</li>
+    </ul>
+
+    <p>
+        <a href="{% url 'product_update' product.pk %}">Редагувати</a> |
+        <a href="{% url 'product_delete' product.pk %}">Видалити</a> |
+        <a href="{% url 'products' %}">Назад до списку</a> |
+        <a href="/">На головну</a>
+    </p>
+</body>
+</html>

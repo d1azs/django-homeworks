@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Видалення товару {{ object.id }}</title>
+</head>
+<body>
+    <h1>Видалити товар "{{ object.item_name }}"?</h1>
+
+    <p>Brand: {{ object.brand }}, Category: {{ object.category }}, Price: {{ object.price }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Так, видалити</button>
+        <a href="{% url 'products' %}">Скасувати</a>
+    </form>
+
+    <p><a href="/">На головну</a></p>
+</body>
+</html>
